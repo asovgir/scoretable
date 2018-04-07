@@ -50,8 +50,8 @@ test:
 production:
   # <<: *default
   adapter: postgresql
-   encoding: unicode
-   pool: 5
+  encoding: unicode
+  pool: 5
   database: scoretable_production
-   username: root
-   password: 
+  username: root
+  password: 
