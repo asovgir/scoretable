@@ -48,7 +48,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Use mysql as the database for Active Record
-  gem 'mysql2', '>= 0.3.18', '< 0.5'
+  # gem 'mysql2', '>= 0.3.18', '< 0.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

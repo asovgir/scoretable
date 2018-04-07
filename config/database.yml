@@ -53,4 +53,4 @@ production:
   pool: 5
   database: scoretable_production
   username: root
-  password: sonicview
+  password: 
