@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def h2h
+    @categories = Category.all
   end
 
   # GET /categories

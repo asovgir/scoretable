@@ -9,18 +9,14 @@
 		</tr>
 		<tr>
 			<td></td>
-			<td><%= image_tag("kobe.jpg", :class => "kobeimg") %></td>
+			<td><%= image_tag("kobe.jpg", :id => "kobeimg") %></td>
 			<td><%= image_tag("no-image-available.png") %></td>
 		</tr>
-		<tr>
-			<td>Beer Pong (Teams)</td>
-			<td>6-6</td>
-			<td>6-6</td>
-		</tr>
-		<tr>
-			<td>Beer Pong (Singles)</td>
-			<td>0-2</td>
-			<td>2-0</td>
-		</tr>
+		
+		<%= @categories.each do |cat| %>
+			<tr>
+				<td><%= cat[:category] %></td>
+			</tr>
+		<% end %>
 	</table>
 </div>
