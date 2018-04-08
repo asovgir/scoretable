@@ -44,11 +44,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+   production:
+     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: scoretable_production
-  username: scoretable
-  password: <%= ENV['SCORETABLE_DATABASE_PASSWORD'] %>
+#production:
+#  <<: *default
+#  database: scoretable_production
+#  username: scoretable
+#  password: <%= ENV['SCORETABLE_DATABASE_PASSWORD'] %>
