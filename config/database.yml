@@ -18,12 +18,8 @@ default: &default
   socket: /var/run/mysqld/mysqld.sock
 
 development:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  <<: *default
   database: scoretable_development
-  username: postgres
-  password: sonicview
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -52,9 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  <<: *default
   database: scoretable_production
-  username: postgres
-  password: sonicview
+  username: scoretable
+  password: <%= ENV['SCORETABLE_DATABASE_PASSWORD'] %>
