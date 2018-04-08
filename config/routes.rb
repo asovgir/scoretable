@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/h2h', to: 'categories#h2h'
   get '/categories', to: 'categories#index'
   get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
   resources :users
 
 end
