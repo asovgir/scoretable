@@ -56,5 +56,5 @@ production:
   encoding: unicode
   pool: 5
   database: scoretable_production
-  username: root
-  password: 
+  username: postgres
+  password: sonicview
