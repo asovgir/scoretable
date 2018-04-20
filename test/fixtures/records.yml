@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wins: 1
+  losses: 1
+  user: one
+  category: one
+
+two:
+  wins: 1
+  losses: 1
+  user: two
+  category: two
