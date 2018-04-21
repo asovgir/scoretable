@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  
+
 
   def profile
     @user = User.find(params[:id])
-    @record = Record.joins(:user).where(:user_id => 2).select('records.id, records.wins')
+    @record = Record.where(user_id: @user.id)
   end
 
   def show

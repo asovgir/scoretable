@@ -1,5 +1,7 @@
 <h1><%= @user.name %></h1>
 
 Record:
-<%= @record.wins %>
-<%= @user.name %>
+<%= @record.each do |user_record| %>
+    Wins: <%= user_record.wins %>
+    Losses: <%= user_record.losses %>
+<% end %>
