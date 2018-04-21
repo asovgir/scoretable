@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def profile
     @user = User.find(params[:id])
     @record = Record.where(user_id: @user.id)
+    @category = Record.where
   end
 
   def show

@@ -1,7 +1,11 @@
 <h1><%= @user.name %></h1>
 
-Record:
+<p>
 <%= @record.each do |user_record| %>
+    Category: <%= user_record.category.category %>
+    <br>
     Wins: <%= user_record.wins %>
+    <br>
     Losses: <%= user_record.losses %>
+    <br>
 <% end %>
