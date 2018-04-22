@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   root to: "categories#h2h"
   get '/h2h', to: 'categories#h2h'
   get '/categories', to: 'categories#index'
+  get '/users', to: 'users#index'
   get '/signup', to: 'users#new'
-  get '/profile/:id', to: 'users#profile'
+  get '/profile/:id', to: 'users#profile', as: 'profile'
   post '/signup', to: 'users#create'
   resources :users
 
