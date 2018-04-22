@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Records</h1>
+<h1>Record</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Wins</th>
-      <th>Losses</th>
       <th>User</th>
       <th>Category</th>
+      <th>Wins</th>
+      <th>Losses</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,10 @@
   <tbody>
     <% @records.each do |record| %>
       <tr>
+        <td><%= record.user.name %></td>
+        <td><%= record.category.category %></td>
         <td><%= record.wins %></td>
         <td><%= record.losses %></td>
-        <td><%= record.user %></td>
-        <td><%= record.category %></td>
         <td><%= link_to 'Show', record %></td>
         <td><%= link_to 'Edit', edit_record_path(record) %></td>
         <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
