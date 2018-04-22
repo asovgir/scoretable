@@ -1,6 +1,5 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: [:show, :edit, :update, :destroy]
-  belongs_to :user
 
 
   # GET /records
@@ -17,6 +16,8 @@ class RecordsController < ApplicationController
   # GET /records/new
   def new
     @record = Record.new
+    @categories = Category.all
+    @users = User.all
   end
 
   # GET /records/1/edit
@@ -73,4 +74,5 @@ class RecordsController < ApplicationController
     def record_params
       params.require(:record).permit(:wins, :losses, :user_id, :category_id)
     end
+
 end
