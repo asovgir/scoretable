@@ -22,6 +22,8 @@ class RecordsController < ApplicationController
 
   # GET /records/1/edit
   def edit
+    @categories = Category.all
+    @users = User.all
   end
 
   # POST /records
