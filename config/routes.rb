@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/categories', to: 'categories#index'
   get '/users', to: 'users#index'
   get '/signup', to: 'users#new'
+  get '/records', to: 'records#index'
   get '/profile/:id', to: 'users#profile', as: 'profile'
   post '/signup', to: 'users#create'
   resources :users
