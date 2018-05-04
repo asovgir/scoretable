@@ -7,6 +7,25 @@ class UsersController < ApplicationController
   def profile
     @user = User.find(params[:id])
     @record = Record.where(user_id: @user.id)
+    @recordid = Record.find_by(user_id: @user.id)
+  end
+
+  def add_victory
+    @user = User.find(params[:id])
+    @recordid = Record.find_by(user_id: @user.id)
+    @recordid.wins +=1
+      if @recordid.save
+        redirect_back(fallback_location: records_path)
+     end
+  end
+
+   def add_loss
+    @user = User.find(params[:id])
+    @recordid = Record.find_by(user_id: @user.id)
+    @recordid.losses +=1
+      if @recordid.save
+        redirect_back(fallback_location: records_path)
+     end
   end
 
   def show

@@ -11,4 +11,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get profile" do
+  	get profile_path(@user)
+  	assert_response :success
+  end
+
+  test "should add victory" do
+  	# to do
+  end
+
+  test "should add loss" do
+  	# to do
+  end
+
 end

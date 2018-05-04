@@ -1,3 +1,4 @@
+
 <%= render 'shared/nav' %>
 <h1><%= @user.name %></h1>
 
@@ -5,8 +6,9 @@
 <%= @record.each do |user_record| %>
     Category: <%= user_record.category.category %>
     <br>
-    Wins: <%= user_record.wins %>
-    <br>
-    Losses: <%= user_record.losses %>
+    Wins: <%= user_record.wins %> <%= button_to "Add Victory", :action => "add_victory" %>
+    Losses: <%= user_record.losses %> <%= button_to "Add Loss", :action => "add_loss" %>
     <br>
 <% end %>
+
+
