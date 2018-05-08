@@ -6,8 +6,8 @@
 <%= @record.each do |user_record| %>
     Category: <%= user_record.category.category %>
     <br>
-    Wins: <%= user_record.wins %> <%= button_to "Add Victory", :action => "add_victory" %>
-    Losses: <%= user_record.losses %> <%= button_to "Add Loss", :action => "add_loss" %>
+    Wins: <%= user_record.wins %> <%= button_to "Add Victory", :action => "add_victory", :id => user_record.id %>
+    Losses: <%= user_record.losses %> <%= button_to "Add Loss", :action => "add_loss", :id => user_record.id %>
     <br>
 <% end %>
 

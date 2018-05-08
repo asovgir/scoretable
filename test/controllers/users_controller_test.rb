@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   setup do
 	@user = users(:one)
+  @record = records(:one)
   end
 
   test "should get new" do
