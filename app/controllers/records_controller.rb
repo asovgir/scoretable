@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
 
   def leaderboard
     @records = Record.all.sort_by{ |i| i.user_id }
-    @categories = Category.all.sort_by{ |i| i }
+    @categories = Category.all
     @users = User.all
   end
 
