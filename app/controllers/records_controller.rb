@@ -19,6 +19,22 @@ class RecordsController < ApplicationController
     @users = User.all
   end
 
+  def add_victory
+    @recordid = Record.where('user_id LIKE ? and category_id LIKE ?', params[:user_id], params[:category_id]).first    
+    @recordid.wins +=1
+      if @recordid.save
+        redirect_back(fallback_location: records_path)
+     end
+  end
+
+  def add_loss
+    @recordid = Record.where('user_id LIKE ? and category_id LIKE ?', params[:user_id], params[:category_id]).first    
+    @recordid.losses +=1
+      if @recordid.save
+        redirect_back(fallback_location: records_path)
+     end
+  end
+
   # GET /records/new
   def new
     @record = Record.new

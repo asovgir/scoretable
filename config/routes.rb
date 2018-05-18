@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   post '/profile/:id/add_loss', to: 'users#add_loss'
   post '/profile/:id/add_victory', to: 'users#add_victory'
   post '/signup', to: 'users#create'
-  get '/leaderboard', to: 'records#leaderboard'
+  get '/leaderboard', to: 'records#leaderboard', as: 'leaderboard'
+  get '/leaderboard/add_victory', to: 'records#add_victory'
+  get '/leaderboard/add_loss', to: 'records#add_loss'
+  post '/leaderboard/add_victory', to: 'records#add_victory'
+  post '/leaderboard/add_loss', to: 'records#add_loss'
   resources :users
 
 end
