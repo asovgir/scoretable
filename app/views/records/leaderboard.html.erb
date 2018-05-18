@@ -1,0 +1,25 @@
+<%= render 'shared/nav' %>
+
+<table class=" table table-striped sortable" border="1px solid black">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Wins</th>
+      <th>Losses</th>
+      <th>Win Percentage</th>
+
+    </tr>
+  </thead>
+
+ <tbody>
+   <% @records.each do |record| %>
+     <tr>
+      <td><%= record.user.name %></td>
+      <td><%= record.category.category %></td>
+      <td><%= record.wins %></td>
+      <td><%= record.losses %></td>
+      <td><%= number_with_precision(100 * record.wins / (record.losses + record.wins ), precision: 0)     %> %</td>
+    </tr>
+   <% end %>
+ </tbody>

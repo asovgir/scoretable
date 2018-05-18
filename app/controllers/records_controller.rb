@@ -13,6 +13,12 @@ class RecordsController < ApplicationController
   def show
   end
 
+  def leaderboard
+    @records = Record.all
+    @categories = Category.all
+    @users = User.all
+  end
+
   # GET /records/new
   def new
     @record = Record.new
