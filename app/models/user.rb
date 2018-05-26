@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-	has_many :records
+	has_many :records, class_name: "Record", foreign_key: "user_id"
+	has_many :competitor_user_records, class_name: "Record", foreign_key: "competitor_user_id"
 	has_many :categories
 
 	before_save { self.email = self.email.downcase }

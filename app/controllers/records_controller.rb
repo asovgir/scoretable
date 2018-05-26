@@ -96,7 +96,7 @@ class RecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def record_params
-      params.require(:record).permit(:wins, :losses, :user_id, :category_id)
+      params.require(:record).permit(:wins, :losses, :user_id, :category_id, :competitor_user_id)
     end
 
 end

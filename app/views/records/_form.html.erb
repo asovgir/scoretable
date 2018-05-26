@@ -31,6 +31,11 @@
     <%= form.collection_select :category_id, @categories, :id, :category %>
   </div>
 
+  <div class="field">
+    <%= form.label :competitor_user_id %>
+    <%= form.collection_select :competitor_user_id, @users, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

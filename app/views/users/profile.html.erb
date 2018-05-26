@@ -2,13 +2,29 @@
 <%= render 'shared/nav' %>
 <h1><%= @user.name %></h1>
 
-<p>
-<%= @record.each do |user_record| %>
-    Category: <%= user_record.category.category %>
-    <br>
-    Wins: <%= user_record.wins %> <%= button_to "Add Victory", :action => "add_victory", :id => user_record.id %>
-    Losses: <%= user_record.losses %> <%= button_to "Add Loss", :action => "add_loss", :id => user_record.id %>
-    <br>
-<% end %>
+
+
+<table class=" table table-striped sortable" border="1px solid black">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>User</th>
+      <th>Opponent</th>
+      <th>Wins</th>
+      <th>Losses</th>
+    </tr>
+  </thead>
+
+ <tbody>
+   <% @record.each do |user_record| %>
+     <tr>
+      <td><%= user_record.category.category %></td>
+      <td><%= user_record.user.name %></td>
+      <td><%= user_record.competitor_user.name %></td>
+      <td><%= user_record.wins %> <%= button_to "Add Victory", :action => "add_victory", :id => user_record.id %></td>
+      <td><%= user_record.losses %> <%= button_to "Add Loss", :action => "add_loss", :id => user_record.id %></td>
+    </tr>
+   <% end %>
+ </tbody>
 
 
