@@ -13,13 +13,14 @@
   </thead>
 
  <tbody>
-   <% @records.each do |record| %>
+  <% sport_records = Record.group(:user_id, :category_id).select(:user_id, :category_id, "sum(wins) as total_wins", "sum(losses) as total_losses") %>
+   <% sport_records.each do |record| %>
      <tr>
       <td><%= record.user.name %></td>
       <td><%= record.category.category %></td>
-      <td><%= record.wins %> <%= link_to "Add Victory", :action => "add_victory", :user_id => record.user_id, :category_id => record.category_id %></td>
-      <td><%= record.losses %> <%= link_to "Add Loss", :action => "add_loss", :user_id => record.user_id, :category_id => record.category_id %></td>
-      <td><%= number_with_precision(100 * record.wins / ((record.losses + record.wins).nonzero? || 1 ), precision: 0)     %> %</td>
+      <td><%= record.total_wins %> </td>
+      <td><%= record.total_losses %> </td>
+      <td><%= number_with_precision(100 * record.total_wins / ((record.total_losses + record.total_wins).nonzero? || 1 ), precision: 0) %> %</td>
     </tr>
    <% end %>
  </tbody>

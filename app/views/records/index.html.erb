@@ -8,6 +8,7 @@
     <tr>
       <th>User</th>
       <th>Category</th>
+      <th>Opponent</th>
       <th>Wins</th>
       <th>Losses</th>
       <th colspan="3"></th>
@@ -19,6 +20,7 @@
       <tr>
         <td><%= record.user.name %></td>
         <td><%= record.category.category %></td>
+        <td><%= record.competitor_user.name %></td>
         <td><%= record.wins %></td>
         <td><%= record.losses %></td>
         <td><%= link_to 'Show', record %></td>
