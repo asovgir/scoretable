@@ -19,7 +19,7 @@
       <td><%= record.category.category %></td>
       <td><%= record.wins %> <%= link_to "Add Victory", :action => "add_victory", :user_id => record.user_id, :category_id => record.category_id %></td>
       <td><%= record.losses %> <%= link_to "Add Loss", :action => "add_loss", :user_id => record.user_id, :category_id => record.category_id %></td>
-      <td><%= number_with_precision(100 * record.wins / (record.losses + record.wins ), precision: 0)     %> %</td>
+      <td><%= number_with_precision(100 * record.wins / ((record.losses + record.wins).nonzero? || 1 ), precision: 0)     %> %</td>
     </tr>
    <% end %>
  </tbody>

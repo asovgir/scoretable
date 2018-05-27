@@ -7,13 +7,17 @@ class UsersController < ApplicationController
   def profile
     @user = User.find(params[:id])
     @record = Record.where(user_id: @user.id)
-
   end
 
   def add_victory
     @recordid = Record.find_by_id(params[:id])
+    @record_category_id = @recordid.category_id
+    @competitor_user_id = @recordid.competitor_user_id  
+    @competitor_record_id = Record.where("user_id LIKE ? AND category_id LIKE ?", @competitor_user_id, @record_category_id).first
+    @competitor_record_id.losses +=1 
     @recordid.wins +=1
-      if @recordid.save
+
+     if @recordid.save & @competitor_record_id.save
         redirect_back(fallback_location: records_path)
      end
   end
@@ -21,7 +25,12 @@ class UsersController < ApplicationController
   def add_loss
     @recordid = Record.find_by_id(params[:id])
     @recordid.losses +=1
-      if @recordid.save
+    @record_category_id = @recordid.category_id
+    @competitor_user_id = @recordid.competitor_user_id  
+    @competitor_record_id = Record.where("user_id LIKE ? AND category_id LIKE ?", @competitor_user_id, @record_category_id).first
+    @competitor_record_id.wins +=1 
+
+      if @recordid.save & @competitor_record_id.save
         redirect_back(fallback_location: records_path)
      end
   end
