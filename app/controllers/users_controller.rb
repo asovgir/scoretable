@@ -14,12 +14,28 @@ class UsersController < ApplicationController
     @record_category_id = @recordid.category_id
     @competitor_user_id = @recordid.competitor_user_id  
     @competitor_record_id = Record.where("user_id LIKE ? AND category_id LIKE ?", @competitor_user_id, @record_category_id).first
-    @competitor_record_id.losses +=1 
-    @recordid.wins +=1
-
-     if @recordid.save & @competitor_record_id.save
+      puts "Record Category identifier is " + @record_category_id.inspect
+      puts "Competitor User identifier is " + @competitor_user_id.inspect
+      puts "Competitor Record identifier is " + @competitor_record_id.inspect
+      puts "User id: " + @recordid.user_id.inspect
+    
+      if @competitor_record_id === nil
+        # Create Competitor Record if it does not exist
+        @recordid.wins +=1
+        Record.create(:user_id =>  @competitor_user_id, :category_id => @recordid.category_id, 
+            :competitor_user_id => @recordid.user_id, :wins => 0, :losses => 1)
+        
         redirect_back(fallback_location: records_path)
-     end
+      else 
+        # Add win to user and loss to opponent
+        @competitor_record_id.losses +=1 
+        @recordid.wins +=1
+        if @recordid.save & @competitor_record_id.save
+          redirect_back(fallback_location: records_path)
+        end
+      end    
+
+     
   end
 
   def add_loss
