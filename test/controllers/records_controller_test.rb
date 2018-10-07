@@ -5,7 +5,7 @@ class RecordsControllerTest < ActionDispatch::IntegrationTest
     @record = records(:one)
   end
 
-  test "should get index" do
+  test "should get records index" do
     get records_url
     assert_response :success
   end

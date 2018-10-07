@@ -5,9 +5,11 @@ one:
   losses: 1
   user: one
   category: one
+  competitor_user: two
 
 two:
   wins: 1
   losses: 1
   user: two
   category: two
+  competitor_user: one

@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   setup do
 	@user = users(:one)
+  @competitor_user = users(:two)
   @record = records(:one)
   end
 
@@ -12,7 +13,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get profile" do
+  test "should get user profile" do
   	get profile_path(@user)
   	assert_response :success
   end
