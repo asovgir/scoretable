@@ -1,11 +1,14 @@
 require 'test_helper'
 
+
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  include Capybara::DSL
 
   setup do
-	@user = users(:one)
-  @competitor_user = users(:two)
-  @record = records(:one)
+  	@user = users(:one)
+    @competitor_user = users(:two)
+    @record = records(:one)
+    @competitor_record = records(:two)
   end
 
   test "should get new" do
@@ -18,11 +21,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   	assert_response :success
   end
 
-  test "should add victory" do
-  	# to do
+  test "should add victory to user and loss to opponent" do
+    # to do
   end
 
-  test "should add loss" do
+  test "should add loss to user and win to opponent" do
   	# to do
   end
 

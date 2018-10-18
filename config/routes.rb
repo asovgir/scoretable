@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   resources :records
   get 'users/new'
+  post 'records/new'
   post 'users/add_loss'
   post 'users/add_victory'
 
 
   resources :categories
+  resources :users
+  resources :records
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "categories#h2h"
@@ -23,6 +26,6 @@ Rails.application.routes.draw do
   get '/leaderboard/add_loss', to: 'records#add_loss'
   post '/leaderboard/add_victory', to: 'records#add_victory'
   post '/leaderboard/add_loss', to: 'records#add_loss'
-  resources :users
+
 
 end
