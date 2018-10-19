@@ -16,7 +16,6 @@
   </thead>
 
  <tbody>
- <%= button_to "Test button", leaderboard_path %>
    <% @record.each do |user_record| %>
      <tr>
       <td><%= user_record.user.name %></td>
