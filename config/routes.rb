@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :agendas
   resources :records
   get 'users/new'
   post 'records/new'
@@ -26,6 +27,6 @@ Rails.application.routes.draw do
   get '/leaderboard/add_loss', to: 'records#add_loss'
   post '/leaderboard/add_victory', to: 'records#add_victory'
   post '/leaderboard/add_loss', to: 'records#add_loss'
-
+  get '/agenda', to: 'agendas#index'
 
 end

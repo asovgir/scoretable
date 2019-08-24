@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Agenda item:</strong>
+  <%= @agenda.agenda_item %>
+</p>
+
+<p>
+  <strong>Is complete:</strong>
+  <%= @agenda.is_complete %>
+</p>
+
+<%= link_to 'Edit', edit_agenda_path(@agenda) %> |
+<%= link_to 'Back', agendas_path %>
